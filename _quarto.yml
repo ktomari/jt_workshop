@@ -1,0 +1,11 @@
+project:
+  type: website
+  render:
+    - index.qmd
+
+website:
+  title: "JT Governance"
+
+format:
+  html:
+    theme: materia

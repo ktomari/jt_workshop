@@ -52,10 +52,19 @@ accordion:
     - header: Additional data
       body: |
         We also used survey data to link organizations named in the Adaptation Plan to other organizations identified in the survey. We plan to compare their relative importance based on how many survey respondents reported their collaborations with other organizations. This is discussed further in the section on Next Steps.
+  - ac-suppdata:
+    - header: Supplemental Data
+      body: |
+        In addition, we leveraged survey data linking these key organizations to almost 600 other Delta organizations for a broader picture.[See @pozziGovernanceClimateAdaptation2025]
   - ac-scebystrat:
     - header: Read more
       body: |
-        Clearly, New Green Watershed has the greatest number of actions associated with adaptive management of the Delta, whereas the Tunnel has the least. In interpreting this graph, it is important to remember that this primarily covers actions that provide resilience for salinity management in the Delta as it undergoes climate change, and the list of actions are non-exhaustive. Additionally, some caution should be exercised in its interpretation because we do not know the level of impact any one action might provide. Nor can we say with certainty which actions are linchpins for any scenario. Our findings are only preliminary.
+        In interpreting this graph, it is important to remember that this primarily covers actions that provide resilience for salinity management in the Delta as it undergoes climate change, and the list of actions are non-exhaustive. Additionally, some caution should be exercised in its interpretation because we do not know the level of impact any one action might provide. Nor can we say with certainty which actions are linchpins for any scenario. Our findings are only preliminary.
+  - ac-ota:
+    - header: Read more
+      body: |
+        * There are more actions addressing the ecosystem due to the greater number of actions in New Green Watershed compared to other scenarios. New Green Watershed has the largest number of votes, and the Tunnel had the least.
+        * In the future, this information will be displayed in a different format!
   - ac-em1:
     - header: Read more
       body: | 
@@ -121,13 +130,13 @@ To begin to answer this, we studied how each scenario would be *governed*.<br><b
 :::{focus-on="cr-restore"}
 # Overview
 
-In this presentation, we share our analysis of how to realize Scenarios, primarily by understanding their governance. <br><br>
+In this presentation, we share our analysis of how to realize the Scenarios in the context of a changing climate, primarily by understanding the key actions and actors involved in their governance. <br><br>
 
 We'll look at:
 
 * **Data** and **Methods** for Examining Governance
-* Implementation **Actions**
-* Key Governance **Actors**
+* Key Implementation **Actions**
+* Key **Actors**
 * Next Steps
 * Main **Takeaways**
 
@@ -148,8 +157,10 @@ We'll look at:
 
 We used existing research and data on "adaptive governance" in the Delta to map out important:
 
-* **Implementation Actions** (eg. invest in levee maintenance)
-* **Actors** (eg. the California Dept. of Water Resources). 
+* **Implementation Actions** 
+  * *Example: invest in levee maintenance.*
+* **Actors** 
+  * *Example: the California Dept. of Water Resources*
 
 {{< accordion ac-adaptive >}}
 :::
@@ -167,29 +178,33 @@ We used existing research and data on "adaptive governance" in the Delta to map 
 
 # Adaptation Plan
 
-In 2025, the Delta Stewardship Council published the ["Adaptation Plan" (AP)](https://deltacouncil.ca.gov/pdf/delta-plan/2025-06-26-delta-adapts-adaptation-plan.pdf) to address the targets of adaptive governance in the California Delta, and we used this plan as a starting place to look at the key actions and actors for each scenario.
+In 2025, the Delta Stewardship Council published the ["Adaptation Plan" (AP)](https://deltacouncil.ca.gov/pdf/delta-plan/2025-06-26-delta-adapts-adaptation-plan.pdf) to address the targets of adaptive governance in the California Delta.<br><br>
+
+We used this plan as a starting place to look at the key actions and actors for each scenario. This data is the focus of this presentation.<br><br>
+
+:::{.light-section}
+{{< accordion ac-suppdata >}}
+:::
 
 :::
 
 ::: {focus-on="cr-ap_cover"}
-The Adaptation Plan has 4 "Strategic Areas" or themes. These include:
+The Adaptation Plan has 4 "Strategic Areas" or themes to address Delta social-environmental management with the challenges of climate change. These include:
 
 * Flood Risk Reduction (FL)
 * Ecosystems (ECO)
 * Agriculture (AG)
 * Water Supply Reliability (WSR)
 
-With a total of 22 "Adaptation Strategies" that include:
-
-* 129 Implementation Actions
-* 10 lead and 67 partner organizations
-
 :::
 
 ::: {focus-on="cr-ap_cover"}
+Under these four strategic areas, there are:
 
-In addition, we leveraged survey data linking these key organizations to almost 600 other Delta organizations for a broader picture.[See @pozziGovernanceClimateAdaptation2025]
-
+* 22 Adaptation Strategies with a total of:
+  * 129 Implementation Actions
+  * 10 lead and 67 partner organizations
+  
 :::
 
 :::{#cr-ap_cover}
@@ -249,13 +264,22 @@ sankey_actions()
 :::: {.cr-section layout="sidebar-right"}
 
 ::: {focus-on="cr-overall_actions"}
-## Scenario by Strategy Area
+## Scenarios by Strategy Area
 
 In this chart, each scenario is shown with its overall alignment with Adaptation Plan actions, grouped by the four strategy areas. The total score of each bar comprises a mix of both numbers of actions and strength of alignment. In other words, the larger the bar, the greater the number of weighted adaptive actions.<br><br>
 
 :::{.light-section}
 {{< accordion ac-scebystrat >}}
 :::
+:::
+
+::: {focus-on="cr-overall_actions"}
+### Takeaways
+
+* Greater diversity of strategies to address salinity management in New Green Watershed, and also greater complexity in the task of governance.
+* Fewest total number of actions for salinity management under a changing climate for the Tunnel.
+* Calling on Reserves and Bolster & Fortify involve similar numbers of actions for climate adaptation.
+
 :::
 
 
@@ -326,11 +350,23 @@ viz_counts(
 ::: {focus-on="cr-ota"}
 ## Top Actions Overall
 
-Across all scenarios, these are identified as the top actions.[^top_actions] More important actions may be identified as the larger cells on the right. Notably, actions which affect how agricultural lands are managed are absent.<br><br>
+Across all scenarios, these are identified as the top actions.[^top_actions] More important actions may be identified as the larger cells on the right. <br><br>
 
-*Please pay attention to the changing scale for "score" in the following slides.*
+*For the following slides, please pay attention to the changing scale for "score".*
 
 [^top_actions]: Top actions were defined as the top quartile of the sum scores of each action.
+:::
+
+:::{focus-on="cr-ota"}
+### Takeaways
+
+* Notably, actions which affect how adaptive agricultural practices are regulated and supported are absent. This is largely a product of how previous community learning and engagement through Just Transitions demonstrated interest on these kinds of interventions.
+* The purpose of this chart is to facilitate exploring the actions on your own time, *not* to demonstrate that ecosystem actions are more important. <br><br>
+
+:::{.light-section}
+{{< accordion ac-ota >}}
+:::
+
 :::
 
 :::{#cr-ota}
