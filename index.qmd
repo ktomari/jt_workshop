@@ -1,0 +1,737 @@
+---
+title: "Just Transitions Governance - DRAFT"
+format: 
+  closeread-html:
+    theme: 
+      - materia
+      - assets/style.scss
+    smooth-scroll: true
+    embed-resources: true
+    cr-style: 
+      narrative-background-color-overlay: "#253439"
+      narrative-text-color-overlay: "#7ED957"
+quarto:
+  extensions: 
+    - qmd-lab/closeread
+    - royfrancis/accordion
+bibliography: final_workshop.bib
+csl: chicago-notes-bibliography-17th-edition.csl
+accordion:
+  - ac-gov:
+    - header: What is governance?
+      body: |
+        What is governance? Governance is the collection of, "actors, rules, and processes through which decisions are made and implemented." [@usdepartmentofagricultureforestserviceAssessingStateEfficacy2025a]
+    - header: "Read more"
+      body: |
+        Governance is not limited to the activities of government agencies, and the complete picture is much more complex than we can fully predict. For our preliminary analysis, we didn't consider completely new:
+        
+        * laws and policies
+        * institutions
+        * sources of funding
+        
+        Instead, for each scenario we focused on the different levels of importance of existing organizations in the Delta, and existing proposed actions to manage the Delta. Ultimately, this roughly sketches out:
+        
+        * Who are the key players? 
+        * How might they carry out the scenario?
+  - ac-adaptive:
+    - header: What is adaptive governance?
+      body: |
+         Adaptive governance is an approach to environmental decision making that tries to address the uncertainties of climate change, "by creating institutions and processes that build in flexibility to respond to changes that cannot be fully anticipated" [@usdepartmentofagricultureforestserviceAssessingStateEfficacy2025a].
+    - header: Implications
+      body: |
+        This means our focus is on how each scenario's governance structure adapts to climate change. It's a narrower slice of the broader answer on governance in the  Delta, but this focus helpfully lines up with existing state priorities around climate resilience.
+  - ac-caveat:
+    - header: Caveats
+      body: |
+        The list of possible governance actions in the Adaptation Plan (AP) is not exhaustive: 
+        
+        * The AP likely does not cover every activity necessary to bring JT Scenarios to fruition. 
+        * Nor does it cover every activity involved in managing salinity in the Delta. 
+        
+        In effect, actions that are considered relevant to Just Transitions either directly or indirectly engage with Scenario objectives, targets, or intent, and because the list of actions are derived from the Adaptation Plan, all actions fall within existing conceptions of climate change mitigation.
+    - header: Additional data
+      body: |
+        We also used survey data to link organizations named in the Adaptation Plan to other organizations identified in the survey. We plan to compare their relative importance based on how many survey respondents reported their collaborations with other organizations. This is discussed further in the section on Next Steps.
+  - ac-scebystrat:
+    - header: Read more
+      body: |
+        Clearly, New Green Watershed has the greatest number of actions associated with adaptive management of the Delta, whereas the Tunnel has the least. In interpreting this graph, it is important to remember that this primarily covers actions that provide resilience for salinity management in the Delta as it undergoes climate change, and the list of actions are non-exhaustive. Additionally, some caution should be exercised in its interpretation because we do not know the level of impact any one action might provide. Nor can we say with certainty which actions are linchpins for any scenario. Our findings are only preliminary.
+  - ac-em1:
+    - header: Read more
+      body: | 
+        The most important actions for this scenario derive from interventions in the ecosystem. Flood risk mitigation actions may also support Eco Machine (EM) priorities, but most of these appear as a third tier of interventions that are not directly performed in EM. This means that while a lot of flood risk mitigation actions might support EM, they are not integral to making this scenario possible. In addition, many ecosystem interventions also appear as supportive. Among the four main strategy areas, Water Supply Reliability and Agriculture had few directly pertinent interventions related to EM.
+  - ac-unique:
+    - header: How to interpret this chart
+      body: |
+        This chart shows the core actions that are considered important for the scenario and which are absent in the top actions of all other scenarios. In other words, these are the actions that make the scenario unique. Core actions are categorized as actions that are directly performed, partly performed, or possibly a precondition for the scenario. 
+  - ac-ngw1:
+    - header: Read more
+      body: |
+        NGW has the most AP actions. Most of the top ranked actions for NGW prioritize ecosystem interventions, but also agriculture and flood risk reduction also play important roles in setting up this scenario for success. 
+  - ac-act-sum:
+    - header: "Most Adaptive: NGW"
+      body: |
+        The scenario with greatest number of adaptation actions, the most diverse strategies, and the scenario with the most unique actions is New Green Watershed. This suggests at least two takeaways: this scenario has the greatest number of tasks needed to see it through, but also has the greatest opportunities for mitigating the effects of climate change on salinity management.
+    - header: Agriculture
+      body: |
+        Adaptive actions that regulate and support Delta agriculture are not centrally featured in most of Just Transitions. If shifting agricultural practices to support salinity management is of most concern to you, only two scenarios engage agriculture. This does not mean other scenarios have no impact on agriculture (for example, B&F performs levee maintenance). Rather, what this analysis suggests is that a Delta agriculture that is more resilient to climate change would additionally support salinity management. Investment in climate change resilient agriculture would not serve to advance the Tunnel, Calling on Reserves, Bolster & Fortify, or simply increasing flows.
+---
+
+<!-- draft 5 -->
+
+```{r}
+#| include: false
+here::i_am("index.qmd")
+library(here)
+source("init.R")
+source("viz.R")
+# source("server_functions.R")
+library(plotly)
+library(DT)
+library(visNetwork)
+# library(shiny)
+# library(bslib)
+library(tidygraph)
+library(kableExtra)
+```
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+:::: {.cr-section layout="overlay-center"}
+
+:::{focus-on="cr-sat_img"}
+
+# Making *Just Transitions* a Reality
+
+What does it take to make *Just Transitions Scenarios* a reality?<br><br>
+
+To begin to answer this, we studied how each scenario would be *governed*.<br><br>
+
+{{< accordion ac-gov >}}
+
+:::
+
+:::{#cr-sat_img}
+![](images/1fc7115a-e5c1-41de-891a-411c675200f7.png)
+:::
+
+::::
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+:::: {.cr-section layout="overlay-center"}
+
+:::{focus-on="cr-restore"}
+# Overview
+
+In this presentation, we share our analysis of how to realize Scenarios, primarily by understanding their governance. <br><br>
+
+We'll look at:
+
+* **Data** and **Methods** for Examining Governance
+* Implementation **Actions**
+* Key Governance **Actors**
+* Next Steps
+* Main **Takeaways**
+
+:::
+
+:::{#cr-restore}
+![](images/74d38470-afe7-415c-8c7e-f7ef635d14c9.png)
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+:::: {.cr-section layout="overlay-center"}
+
+::: {focus-on="cr-ecomac"}
+# How We Examined Governance
+
+We used existing research and data on "adaptive governance" in the Delta to map out important:
+
+* **Implementation Actions** (eg. invest in levee maintenance)
+* **Actors** (eg. the California Dept. of Water Resources). 
+
+{{< accordion ac-adaptive >}}
+:::
+
+:::{#cr-ecomac}
+![](images/0f325382-17c3-41d5-adb1-7d62b0ee8e63.png)
+:::
+
+::::
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-ap_cover"}
+
+# Adaptation Plan
+
+In 2025, the Delta Stewardship Council published the ["Adaptation Plan" (AP)](https://deltacouncil.ca.gov/pdf/delta-plan/2025-06-26-delta-adapts-adaptation-plan.pdf) to address the targets of adaptive governance in the California Delta, and we used this plan as a starting place to look at the key actions and actors for each scenario.
+
+:::
+
+::: {focus-on="cr-ap_cover"}
+The Adaptation Plan has 4 "Strategic Areas" or themes. These include:
+
+* Flood Risk Reduction (FL)
+* Ecosystems (ECO)
+* Agriculture (AG)
+* Water Supply Reliability (WSR)
+
+With a total of 22 "Adaptation Strategies" that include:
+
+* 129 Implementation Actions
+* 10 lead and 67 partner organizations
+
+:::
+
+::: {focus-on="cr-ap_cover"}
+
+In addition, we leveraged survey data linking these key organizations to almost 600 other Delta organizations for a broader picture.[See @pozziGovernanceClimateAdaptation2025]
+
+:::
+
+:::{#cr-ap_cover}
+![Adaptation Plan \(2025\)](images/ap_cover.png)
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+:::: {.cr-section layout="overlay-center"}
+
+:::{focus-on="cr-inundate"}
+# Methodology: Alignment
+
+We examined how each action in the Adaptation Plan (AP) **align** with the goals and targets of each JT Scenario. We rated each action for each scenario along a rubric that essentially focuses on two framing questions: 
+
+* **Is this a core action?** Does this governance action help realize the JT Scenario?
+* **Is this a peripheral action?** Does this governance action potentially support the JT Scenario without direct engagement with scenario targets? 
+
+Using this approach we determined a numeric score for each AP action under each Scenario.<br><br>
+
+{{< accordion ac-caveat >}}
+:::
+
+:::{#cr-inundate}
+![](images/60edec9d-389a-4af6-b9a4-02c9a92c9664.png)
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-actions_sankey"}  
+
+# Scenario Actions
+
+We found that `r nrow(jt_actions_only)` of the 129 AP actions were relevant to Just Transitions. <br><br>
+This chart gives a basic picture of the complexity of the interrelations between the scenarios (left) and the AP actions (right).
+
+:::
+
+::: {#cr-actions_sankey}
+
+```{r}
+
+sankey_actions()
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-right"}
+
+::: {focus-on="cr-overall_actions"}
+## Scenario by Strategy Area
+
+In this chart, each scenario is shown with its overall alignment with Adaptation Plan actions, grouped by the four strategy areas. The total score of each bar comprises a mix of both numbers of actions and strength of alignment. In other words, the larger the bar, the greater the number of weighted adaptive actions.<br><br>
+
+:::{.light-section}
+{{< accordion ac-scebystrat >}}
+:::
+:::
+
+
+::: {#cr-overall_actions} 
+
+```{r}
+overall_scenario_score_by_strategy_area <- dat$scenario_scores_by_action %>%
+  dplyr::mutate(strategy_area = stringr::str_extract(strategy_id, 
+                                                     stringr::regex("^[[:alpha:]]{2,3}"))) %>%
+  dplyr::summarize(
+    .by = strategy_area,
+    dplyr::across(
+      .cols = tidyselect::all_of(snm),
+      .fns = ~sum(.x, na.rm = TRUE)
+    )
+  ) %>%
+  tidyr::pivot_longer(
+    cols = tidyselect::all_of(snm),
+    names_to = "scenario",
+    values_to = "score"
+  ) %>%
+  dplyr::mutate(area_color = purrr::map_chr(
+      strategy_area,
+      ~pal_area[which(names(pal_area) %in% .x)])) %>%
+  dplyr::mutate(
+    strategy_area = purrr::map_chr(
+      strategy_area,
+      ~area_key[names(area_key) == .x]
+    )
+  )
+
+order_sce <- overall_scenario_score_by_strategy_area %>%
+  dplyr::summarize(sumscore = sum(score), .by = "scenario") %>%
+  dplyr::arrange(sumscore) %>%
+  dplyr::mutate(scenario_fct = forcats::as_factor(scenario)) %>%
+  dplyr::select(scenario, scenario_fct)
+
+order_strat <- overall_scenario_score_by_strategy_area %>%
+  dplyr::summarize(sumscore = sum(score), .by = "strategy_area") %>%
+  dplyr::arrange(sumscore)%>%
+  dplyr::mutate(order = row_number()) %>%
+  dplyr::select(-sumscore)
+
+overall_scenario_score_by_strategy_area <- overall_scenario_score_by_strategy_area %>%
+  dplyr::left_join(y = order_sce, by = "scenario") %>%
+  dplyr::left_join(y = order_strat, by = "strategy_area") %>%
+  dplyr::select(-scenario) %>%
+  dplyr::rename(scenario = scenario_fct) %>%
+  dplyr::arrange(dplyr::desc(scenario), dplyr::desc(order))
+
+viz_counts(
+  data = overall_scenario_score_by_strategy_area,
+  categorical = "strategy_area",
+  x_ = "score",
+  y_ = "scenario",
+  color_ = "area_color"
+)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-ota"}
+## Top Actions Overall
+
+Across all scenarios, these are identified as the top actions.[^top_actions] More important actions may be identified as the larger cells on the right. Notably, actions which affect how agricultural lands are managed are absent.<br><br>
+
+*Please pay attention to the changing scale for "score" in the following slides.*
+
+[^top_actions]: Top actions were defined as the top quartile of the sum scores of each action.
+:::
+
+:::{#cr-ota}
+
+```{r}
+ota <- overall_top_actions %>%
+  dplyr::mutate(action_id = stringr::str_extract(
+    action, "^[:alpha:]{2,3}\\-[:digit:]{1,2}\\-[:digit:]{1,2}")) %>%
+  dplyr::mutate(strategy_id = stringr::str_extract(
+    action, 
+    "^[:alpha:]{2,3}\\-[:digit:]{1,2}")) %>%
+  dplyr::select(action, action_id, strategy_id, total_score) %>%
+  dplyr::rename(score = total_score)
+
+viz_counts(
+    data = scenario_scores_by_area(ota),
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+:::
+
+::::
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+:::: {.cr-section layout="sidebar-right"}
+```{r}
+sce <- snm[1]
+scedat <- scenario_scores_by_area(sce)
+```
+
+::: {focus-on="cr-em1"}
+## Eco Machine
+
+There are `r nrow(scedat)` actions aligned with `r sce`.<br><br>
+
+:::{.light-section}
+{{< accordion ac-em1 >}}
+:::
+
+:::
+
+:::{#cr-em1}
+```{r}
+viz_counts(
+    data = scedat,
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-right"}
+
+::: {focus-on="cr-em2"}
+### Unique Actions
+
+What makes `r sce` unique and distinctive when compared to other scenarios, are flood risk reduction and ecosystem actions that help set the groundwork. In other words, actions that are directly performed in `r sce` are shared with other JT scenarios (like `r snm[2]`) and are not unique to this scenario.<br><br>
+
+:::{.light-section}
+{{< accordion ac-unique >}}
+:::
+
+
+:::
+
+:::{#cr-em2}
+```{r}
+viz_counts_adv(data = sce_unique(sce))
+```
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+:::: {.cr-section layout="sidebar-left"}
+```{r}
+sce <- snm[2]
+scedat <- scenario_scores_by_area(sce)
+```
+
+::: {focus-on="cr-ngw1"}
+## New Green Watershed
+
+There are `r nrow(scedat)` actions aligned with `r sce`.<br><br>
+
+:::{.light-section}
+{{< accordion ac-ngw1 >}}
+:::
+
+:::
+
+:::{#cr-ngw1}
+```{r}
+viz_counts(
+    data = scedat,
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-ngw2"}
+### Unique Actions
+
+Given that `r sce` has the most number of adaptive actions related to its performance, it is not surprising to find a number of core actions unique to this scenario. Some of these interventions are performed directly in the scenario, although most simply set a foundation.
+
+:::
+
+:::{#cr-ngw2}
+```{r}
+viz_counts_adv(data = sce_unique(sce))
+```
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+:::: {.cr-section layout="sidebar-right"}
+```{r}
+sce <- snm[3]
+scedat <- scenario_scores_by_area(sce)
+```
+
+::: {focus-on="cr-t1"}
+## Tunnel
+
+There are `r nrow(scedat)` actions aligned with `r sce`. The `r sce` has the least potential number of actions and lowest alignment with the AP. No adaptive action directly targets the building blocks for this scenario. Finally, no core actions were identified as "unique" to `r sce`.
+
+:::
+
+:::{#cr-t1}
+```{r}
+viz_counts(
+    data = scedat,
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+
+:::
+
+::::
+
+:::: {.cr-section layout="sidebar-left"}
+```{r}
+sce <- snm[4]
+scedat <- scenario_scores_by_area(sce)
+```
+
+::: {focus-on="cr-bf1"}
+## Bolster & Fortify
+
+There are `r nrow(scedat)` actions aligned with `r sce`. Only three AP actions are directly performed under `r sce`, and these all directly relate to the infrastructure necessary to realize the scenario. 
+
+:::
+
+:::{#cr-bf1}
+```{r}
+viz_counts(
+    data = scedat,
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-bf2"}
+### Unique Actions
+
+Beyond the infrastructure actions already discussed above (which are unique), there are a number of distinct flood risk reduction actions that support, but do not by necessity correspond with core components of `r sce`.
+
+:::
+
+:::{#cr-bf2}
+```{r}
+viz_counts_adv(data = sce_unique(sce))
+```
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+:::: {.cr-section layout="sidebar-right"}
+```{r}
+sce <- snm[5]
+scedat <- scenario_scores_by_area(sce)
+```
+
+::: {focus-on="cr-cor1"}
+## Calling on Reserves
+
+There are `r nrow(scedat)` actions aligned with `r sce`. Unsurprisingly, the key strategy areas for `r sce` involve flood risk reduction and water supply reliability. This scenario has one adaptive action that would be directly implemented and one that is "partly performed". The former concerns reservoir storage capacities and the latter concerns "functional flows" which ties the needs of the ecosystem to how much water is released from reservoirs.
+:::
+
+:::{#cr-cor1}
+```{r}
+viz_counts(
+    data = scedat,
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-right"}
+
+::: {focus-on="cr-cor2"}
+### Unique Actions
+
+Many of the distinctive actions for this scenario involve ones that support reservoir operations.
+:::
+
+:::{#cr-cor2}
+```{r}
+viz_counts_adv(data = sce_unique(sce))
+```
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+:::: {.cr-section layout="sidebar-left"}
+```{r}
+sce <- snm[6]
+scedat <- scenario_scores_by_area(sce)
+```
+
+::: {focus-on="cr-f1"}
+## Increased Flows
+
+There are `r nrow(scedat)` actions aligned with `r sce`. Similar to `r snm[3]`, no adaptation actions were identified would be directly performed under this scenario. Finally, no core actions were identified as unique to `r sce`.
+
+:::
+
+:::{#cr-f1}
+```{r}
+viz_counts(
+    data = scedat,
+    categorical = "action_id",
+    x_ = "score",
+    y_ = "area",
+    color_ = "area_color",
+    show_legend = FALSE
+)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+:::: {.cr-section layout="overlay-center"}
+
+:::{focus-on="cr-gates"}
+## Actions Summary
+
+By and large, the kinds of adaptation actions suited to each Scenario is unsurprising because of our methodology. The interesting takeaway features the overall diversity and complexity of each scenario, and how well each scenario aligns with opportunities to adapt to climate change. <br><br>
+
+{{< accordion ac-act-sum >}}
+
+:::
+
+:::{#cr-gates}
+![](images/14df7393-b6d9-461b-a202-a9123555b643.png)
+:::
+
+::::  
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-leads"}
+# Scenario Actors
+
+The Adaptation Plan identifies two tiers of governance actors: lead and partner entities. These could include state agencies, but also non-governmental organizations.<br><br>
+
+In this graph, the lead agencies for each scenario are set for comparison.
+:::
+
+:::{#cr-leads}
+```{r}
+org_roles %>%
+      dplyr::filter(strategy_role_type == "lead") %>%
+  type_comparison(data = ., categorical_col = "entity")
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-right"}
+
+::: {focus-on="cr-lead_types"}
+## Lead Org. Types
+
+Here we see how the lead organizations break up by the type of organization.
+:::
+
+:::{#cr-lead_types}
+```{r}
+slo <- org_roles %>%
+      dplyr::filter(strategy_role_type == "lead") %>%
+      # dplyr::group_by(scenario, org_type_detail) %>%
+      dplyr::summarise(score = sum(score), 
+                       .by = c(scenario, org_type_detail)) %>%
+      dplyr::ungroup()
+
+slo_otd <- slo %>%
+  dplyr::summarise(score = sum(score), .by = org_type_detail) %>%
+  dplyr::arrange(score) %>%
+  dplyr::mutate(org_type_detail = forcats::as_factor(org_type_detail)) %>%
+  dplyr::pull(org_type_detail)
+
+slo <- slo %>%
+  dplyr::mutate(org_type_detail = factor(
+    x = org_type_detail,
+    levels = slo_otd
+  )) %>%
+  dplyr::arrange(org_type_detail)
+
+# lead agency by org types
+type_comparison(slo, show_legend = TRUE)
+```
+
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="sidebar-left"}
+
+::: {focus-on="cr-all_types"}
+## All Org. Types
+
+This graph displays the relative proportion of organization types across both lead and partner organizations for each scenario.
+:::
+
+:::{#cr-all_types}
+```{r}
+# lead and partner org types combined
+org_roles %>%
+      # dplyr::group_by(scenario, org_type_detail) %>%
+      dplyr::summarise(score = sum(score), 
+                       .by = c(scenario, org_type_detail)) %>%
+      dplyr::ungroup() %>%
+  type_comparison(data = ., categorical_col = "org_type_detail")
+```
+
+:::
+
+::::

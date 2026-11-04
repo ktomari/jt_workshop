@@ -1,0 +1,97 @@
+/*-- scss:defaults --*/
+
+$primary-color: #253439;
+$secondary-color: #7ED957;
+$accordion-bg: $primary-color;
+$accordion-color: #7ED957;
+$accordion-button-bg: #253439;
+$accordion-button-color: #7ED957;
+$accordion-button-active-bg: #1b2629;
+$accordion-button-active-color: #7ED957;
+$accordion-border-color: #7ED957;
+$accordion-border-radius: 0.5rem;
+
+/*-- scss:rules --*/
+body {
+    color: $primary-color;
+
+    nav {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: $primary-color;
+        }
+    }
+}
+
+.accordion-body{
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+.light-section .accordion-button {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-section .accordion-button:not(.collapsed) {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-section .accordion-body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-section .accordion-item {
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+.dark-section .accordion-body,
+.light-section .accordion-body {
+  background-color: transparent;
+}
+
+
+li {
+  margin-top: 0.5rem;   // space between bullets
+}
+
+.sat_map {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(images/1fc7115a-e5c1-41de-891a-411c675200f7.png) top center;
+  background_size: cover;
+  overflow: hidden;
+}
+
+.cr-section {
+  background-color: transparent !important;
+  font-family: inherit;
+}
+
+
+.cr-section .sidebar {
+  align-self: flex-start !important;   // stop stretch
+  height: auto !important;             // let it be auto‑height
+}
+
+.cr-section .sidebar > * {
+  max-width: 100% !important;          // never exceed column width
+  height: auto !important;             // keep intrinsic height
+}
