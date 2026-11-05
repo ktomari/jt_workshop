@@ -10,8 +10,10 @@ $accordion-button-active-bg: #1b2629;
 $accordion-button-active-color: #7ED957;
 $accordion-border-color: #7ED957;
 $accordion-border-radius: 0.5rem;
+$font-stack: "Helvetica", sans-serif;
 
 /*-- scss:rules --*/
+
 body {
     color: $primary-color;
 
@@ -32,6 +34,39 @@ body {
             color: $primary-color;
         }
     }
+}
+
+.table {
+  --bs-table-bg: #253439;
+  --bs-table-color: #7ED957;
+  --bs-table-border-color: #7ED957;
+  background-color: #253439;
+  color: #7ED957;
+}
+
+.table > :not(caption) > * > * {
+  background-color: #253439;
+  color: #7ED957;
+}
+
+
+.no-table-borders table,
+.no-table-borders thead th,
+.no-table-borders thead td {
+  border-top: none;
+}
+
+.no-table-borders tbody tr:first-child td,
+.no-table-borders thead th {
+  border-top: none;
+}
+
+.no-table-borders tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.no-table-borders table {
+  border-bottom: none;
 }
 
 .accordion-body{

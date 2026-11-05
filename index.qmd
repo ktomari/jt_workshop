@@ -14,6 +14,7 @@ quarto:
   extensions: 
     - qmd-lab/closeread
     - royfrancis/accordion
+callout-appearance: simple
 bibliography: final_workshop.bib
 csl: chicago-notes-bibliography-17th-edition.csl
 accordion:
@@ -56,10 +57,14 @@ accordion:
     - header: Supplemental Data
       body: |
         In addition, we leveraged survey data linking these key organizations to almost 600 other Delta organizations for a broader picture.[See @pozziGovernanceClimateAdaptation2025]
+  - ac-sankey:
+    - header: About this chart
+      body: |
+        This chart gives a basic picture of the complexity of the interrelations between the scenarios (left) and the AP actions (right).
   - ac-scebystrat:
     - header: Read more
       body: |
-        In interpreting this graph, it is important to remember that this primarily covers actions that provide resilience for salinity management in the Delta as it undergoes climate change, and the list of actions are non-exhaustive. Additionally, some caution should be exercised in its interpretation because we do not know the level of impact any one action might provide. Nor can we say with certainty which actions are linchpins for any scenario. Our findings are only preliminary.
+        In interpreting this graph, it is important to remember that this primarily covers actions that provide resilience for salinity management in the Delta as it undergoes climate change, and the list of actions are non-exhaustive. Additionally, some caution should be exercised in its interpretation because we do not know the level of impact any one action might provide. (We're essentially asking who is in the room, not how much they can do.) Nor can we say with certainty which actions are linchpins for any scenario. Our findings are only preliminary.
   - ac-ota:
     - header: Read more
       body: |
@@ -92,8 +97,8 @@ accordion:
 #| include: false
 here::i_am("index.qmd")
 library(here)
-source("init.R")
-source("viz.R")
+source(here::here("init.R"))
+
 # source("server_functions.R")
 library(plotly)
 library(DT)
@@ -244,7 +249,10 @@ Using this approach we determined a numeric score for each AP action under each 
 # Scenario Actions
 
 We found that `r nrow(jt_actions_only)` of the 129 AP actions were relevant to Just Transitions. <br><br>
-This chart gives a basic picture of the complexity of the interrelations between the scenarios (left) and the AP actions (right).
+
+:::{.light-section}
+{{< accordion ac-sankey >}}
+:::
 
 :::
 
@@ -278,7 +286,7 @@ In this chart, each scenario is shown with its overall alignment with Adaptation
 
 * Greater diversity of strategies to address salinity management in New Green Watershed, and also greater complexity in the task of governance.
 * Fewest total number of actions for salinity management under a changing climate for the Tunnel.
-* Calling on Reserves and Bolster & Fortify involve similar numbers of actions for climate adaptation.
+* Calling on Reserves and Bolster & Fortify involve similar numbers of weighted actions for climate adaptation.
 
 :::
 
@@ -352,7 +360,15 @@ viz_counts(
 
 Across all scenarios, these are identified as the top actions.[^top_actions] More important actions may be identified as the larger cells on the right. <br><br>
 
-*For the following slides, please pay attention to the changing scale for "score".*
+:::{.callout-warning}
+The purpose of this chart is to facilitate exploring the actions on your own time, *not* to demonstrate the relative importance of any strategy area.
+:::
+
+<br>
+
+:::{.light-section}
+{{< accordion ac-ota >}}
+:::
 
 [^top_actions]: Top actions were defined as the top quartile of the sum scores of each action.
 :::
@@ -360,12 +376,7 @@ Across all scenarios, these are identified as the top actions.[^top_actions] Mor
 :::{focus-on="cr-ota"}
 ### Takeaways
 
-* Notably, actions which affect how adaptive agricultural practices are regulated and supported are absent. This is largely a product of how previous community learning and engagement through Just Transitions demonstrated interest on these kinds of interventions.
-* The purpose of this chart is to facilitate exploring the actions on your own time, *not* to demonstrate that ecosystem actions are more important. <br><br>
-
-:::{.light-section}
-{{< accordion ac-ota >}}
-:::
+Notably, actions which affect how adaptive agricultural practices are regulated and supported are absent. This is because only New Green Watershed addresses changes in agricultural practices.
 
 :::
 
@@ -400,13 +411,19 @@ viz_counts(
 :::: {.cr-section layout="sidebar-right"}
 ```{r}
 sce <- snm[1]
-scedat <- scenario_scores_by_area(sce)
+scedat <- sscores[[sce]]
 ```
 
 ::: {focus-on="cr-em1"}
 ## Eco Machine
 
 There are `r nrow(scedat)` actions aligned with `r sce`.<br><br>
+
+:::{.callout-warning}
+For the following slides, please pay attention to the changing scale for "score".
+:::
+
+<br>
 
 :::{.light-section}
 {{< accordion ac-em1 >}}
@@ -448,8 +465,9 @@ What makes `r sce` unique and distinctive when compared to other scenarios, are 
 
 :::{#cr-em2}
 ```{r}
-viz_counts_adv(data = sce_unique(sce))
+viz_counts_adv(data = sunique[[sce]], show_legend = TRUE)
 ```
+
 :::
 
 ::::
@@ -457,9 +475,10 @@ viz_counts_adv(data = sce_unique(sce))
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 :::: {.cr-section layout="sidebar-left"}
+
 ```{r}
 sce <- snm[2]
-scedat <- scenario_scores_by_area(sce)
+scedat <- sscores[[sce]]
 ```
 
 ::: {focus-on="cr-ngw1"}
@@ -502,7 +521,7 @@ Given that `r sce` has the most number of adaptive actions related to its perfor
 
 :::{#cr-ngw2}
 ```{r}
-viz_counts_adv(data = sce_unique(sce))
+viz_counts_adv(data = sunique[[sce]], show_legend = TRUE)
 ```
 :::
 
@@ -513,7 +532,7 @@ viz_counts_adv(data = sce_unique(sce))
 :::: {.cr-section layout="sidebar-right"}
 ```{r}
 sce <- snm[3]
-scedat <- scenario_scores_by_area(sce)
+scedat <- sscores[[sce]]
 ```
 
 ::: {focus-on="cr-t1"}
@@ -542,7 +561,7 @@ viz_counts(
 :::: {.cr-section layout="sidebar-left"}
 ```{r}
 sce <- snm[4]
-scedat <- scenario_scores_by_area(sce)
+scedat <- sscores[[sce]]
 ```
 
 ::: {focus-on="cr-bf1"}
@@ -581,7 +600,7 @@ Beyond the infrastructure actions already discussed above (which are unique), th
 
 :::{#cr-bf2}
 ```{r}
-viz_counts_adv(data = sce_unique(sce))
+viz_counts_adv(data = sunique[[sce]], show_legend = TRUE)
 ```
 :::
 
@@ -592,7 +611,7 @@ viz_counts_adv(data = sce_unique(sce))
 :::: {.cr-section layout="sidebar-right"}
 ```{r}
 sce <- snm[5]
-scedat <- scenario_scores_by_area(sce)
+scedat <- sscores[[sce]]
 ```
 
 ::: {focus-on="cr-cor1"}
@@ -629,7 +648,7 @@ Many of the distinctive actions for this scenario involve ones that support rese
 
 :::{#cr-cor2}
 ```{r}
-viz_counts_adv(data = sce_unique(sce))
+viz_counts_adv(data = sunique[[sce]], show_legend = TRUE)
 ```
 :::
 
@@ -640,7 +659,7 @@ viz_counts_adv(data = sce_unique(sce))
 :::: {.cr-section layout="sidebar-left"}
 ```{r}
 sce <- snm[6]
-scedat <- scenario_scores_by_area(sce)
+scedat <- sscores[[sce]]
 ```
 
 ::: {focus-on="cr-f1"}
@@ -672,7 +691,27 @@ viz_counts(
 :::{focus-on="cr-gates"}
 ## Actions Summary
 
-By and large, the kinds of adaptation actions suited to each Scenario is unsurprising because of our methodology. The interesting takeaway features the overall diversity and complexity of each scenario, and how well each scenario aligns with opportunities to adapt to climate change. <br><br>
+```{r}
+#| echo: false
+actsum <- tibble::tibble(
+  Scenarios = snm,
+  `Total Actions` = purrr::map_int(sscores, ~nrow(.x)),
+  `Unique Actions` = purrr::map_int(sunique, ~ifelse(identical(.x, NULL), 0, nrow(.x)))
+)
+```
+
+
+::: {.no-table-borders}
+`r kableExtra::kable(actsum)`
+:::
+
+:::
+
+
+:::{focus-on="cr-gates"}
+By and large, the kinds of adaptation actions suited to each Scenario is unsurprising because of our methodology. <br><br>
+
+The takeaway here is to note the overall diversity and complexity of each scenario, and how well each scenario aligns with opportunities to adapt to climate change. <br><br>
 
 {{< accordion ac-act-sum >}}
 
@@ -689,14 +728,25 @@ By and large, the kinds of adaptation actions suited to each Scenario is unsurpr
 :::: {.cr-section layout="sidebar-left"}
 
 ::: {focus-on="cr-leads"}
+
 # Scenario Actors
 
-The Adaptation Plan identifies two tiers of governance actors: lead and partner entities. These could include state agencies, but also non-governmental organizations.<br><br>
+The Adaptation Plan identifies two tiers of governance actors: lead and partner entities. These could include state agencies or regional governments, but also non-governmental organizations.
 
-In this graph, the lead agencies for each scenario are set for comparison.
+:::
+
+::: {focus-on="cr-leads"}
+
+In this graph, the lead agencies for each scenario are set for comparison. Some takeaways:
+
+* EM and NGW are very similar
+* Tunnel, with least actions, predictably has least leads
+* DWR is the most central agency among survey respondents from a different data set, but its role here differs by scenario.
+
 :::
 
 :::{#cr-leads}
+
 ```{r}
 org_roles %>%
       dplyr::filter(strategy_role_type == "lead") %>%
@@ -712,9 +762,9 @@ org_roles %>%
 :::: {.cr-section layout="sidebar-right"}
 
 ::: {focus-on="cr-lead_types"}
-## Lead Org. Types
+## Lead Actor Types
 
-Here we see how the lead organizations break up by the type of organization.
+Here we see how the lead actors are grouped by their type of organization. One takeaway is that the state is most important, but regional and local governments matter too.
 :::
 
 :::{#cr-lead_types}
@@ -752,9 +802,16 @@ type_comparison(slo, show_legend = TRUE)
 :::: {.cr-section layout="sidebar-left"}
 
 ::: {focus-on="cr-all_types"}
-## All Org. Types
+## All Actor Types
 
-This graph displays the relative proportion of organization types across both lead and partner organizations for each scenario.
+This graph, as with the previous one, displays the relative proportion of organization types, but across both lead and partner actors for each scenario. When we add partners to the leads, the diversity of types nearly doubles.
+:::
+
+::: {focus-on="cr-all_types"}
+* The state remains the most important, hovering around 50%.
+* The biggest new actors: the Federal government and Native nations. 
+* There seems to be an outsized importance of local government for the Tunnel. What might this say about sources of climate resilience by actor type?
+
 :::
 
 :::{#cr-all_types}
@@ -768,6 +825,109 @@ org_roles %>%
   type_comparison(data = ., categorical_col = "org_type_detail")
 ```
 
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  
+:::: {.cr-section layout="overlay-center"}
+
+::: {focus-on="cr-dam"}
+## Actor Summary
+
+```{r}
+#| echo: false
+leads <- org_roles %>%
+  dplyr::filter(strategy_role_type == "lead") %>%
+  dplyr::group_by(scenario) %>%
+  dplyr::distinct(entity) %>%
+  dplyr::summarize(
+  `Lead (n)` = dplyr::n()
+) %>%
+  dplyr::ungroup()
+
+ltypes <- org_roles %>%
+  dplyr::select(scenario, org_type_detail, strategy_role_type) %>%
+  dplyr::filter(strategy_role_type == "lead") %>%
+  dplyr::group_by(scenario) %>%
+  dplyr::distinct(org_type_detail) %>%
+  dplyr::mutate(count = 1) %>%
+  dplyr::select(-org_type_detail) %>%
+  dplyr::summarise(`Lead Types` = sum(count))
+
+partners <- org_roles %>%
+  dplyr::filter(strategy_role_type == "partners") %>%
+  dplyr::group_by(scenario) %>%
+  dplyr::distinct(entity) %>%
+  dplyr::summarize(
+  `Partner (n)` = dplyr::n()
+) %>%
+  dplyr::ungroup()
+
+ptypes <- org_roles %>%
+  dplyr::select(scenario, org_type_detail, strategy_role_type) %>%
+  dplyr::filter(strategy_role_type == "partners") %>%
+  dplyr::group_by(scenario) %>%
+  dplyr::distinct(org_type_detail) %>%
+  dplyr::mutate(count = 1) %>%
+  dplyr::select(-org_type_detail) %>%
+  dplyr::summarise(`Partner Types` = sum(count))
+
+actorsum <- tibble::tibble(scenario = snm) %>%
+  dplyr::left_join(leads, by = c("scenario")) %>%
+  dplyr::left_join(ltypes, by = c("scenario")) %>%
+  dplyr::left_join(partners, by = c("scenario")) %>%
+  dplyr::left_join(ptypes, by = c("scenario")) %>%
+  dplyr::rename(Scenario = scenario)
+```
+
+
+::: {.no-table-borders}
+`r kableExtra::kable(actorsum)`
+:::
+
+:::
+
+:::{#cr-dam}
+![](images/60ffbfcb-7ca7-4c85-a168-0c813a9afe27.png)
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+:::: {.cr-section layout="sidebar-left"}
+
+:::{focus-on="cr-network"}
+# Next Steps
+
+In the coming weeks, we'll be adding supplemental data on governance collaborations. This data set has over 600 actors, and we'll link lead agencies identified with each scenario to see who else beyond the partners identified in the Adaptation Plan might be considered for each scenario.<br><br>
+:::
+
+:::{#cr-network}
+![](images/network.png)
+:::
+
+::::
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+:::: {.cr-section layout="overlay-center"}
+
+:::{focus-on="cr-tmp"}
+# Takeaways 
+
+* These results are **preliminary** and there are a lot of gaps. For example, New Green Watershed, with its ambitious full watershed extent, likely involves a greater number of actions and actors given that the Adaptation Plan is confined to the Delta.
+* Complexity of management and opportunities for resilience to climate change go hand-in-hand.
+* With complexity, it will have to be collaborative, which means:
+  * many governmental and non-governmental actors will have to work collectively and through consensus-oriented decision-making.
+* Actions are scenario dependent, but some key actions appear to be generally beneficial for salinity management
+  * Native American nations and organizations will need a bigger seat at the table but "how?" is still ambiguous.
+  * We might see a shift between responsibility for climate change resilience between different scales of actors, for example a greater reliance on local government in Tunnel.
+
+:::
+
+:::{#cr-tmp}
+![](images/1fc7115a-e5c1-41de-891a-411c675200f7.png)
 :::
 
 ::::

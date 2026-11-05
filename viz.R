@@ -42,7 +42,8 @@ scenario_scores_by_area <- function(
   sda %>%
     dplyr::left_join(order_, by = "area") %>%
     dplyr::select(-area) %>%
-    dplyr::rename(area = area_fct)
+    dplyr::rename(area = area_fct) %>%
+    dplyr::mutate(action_id = forcats::as_factor(action_id))
 }
 
 #' Create barplot using plotly.
@@ -148,6 +149,7 @@ sce_actions_data <- function(
     dplyr::select(strategy_id, action_id, !!sce, action) %>%
     dplyr::rename(score := !!sym(sce)) %>%
     dplyr::filter(score > 0) %>%
+    dplyr::arrange(score) %>%
     dplyr::left_join(y = cb, by = "score") %>%
     dplyr::mutate(area = stringr::str_extract(strategy_id, "[:alpha:]+"))
 
@@ -167,7 +169,8 @@ sce_actions_data <- function(
     dplyr::select(-area)
 
   sda <- sda %>%
-    dplyr::left_join(y = pal, by = "strategy_id")
+    dplyr::left_join(y = pal, by = "strategy_id") %>%
+    dplyr::mutate(action_id = forcats::as_factor(action_id))
 
   sda
 }
@@ -232,7 +235,8 @@ viz_counts_adv <- function(
     chunk_col = "action_id",
     x_ = "score",
     y_ = "level",
-    hovertext_col = "action"
+    hovertext_col = "action",
+    show_legend = FALSE
 ){
   if(identical(data, NULL)){
     return(NULL)
@@ -249,33 +253,42 @@ viz_counts_adv <- function(
     dplyr::mutate(hovertext := !!sym(hovertext_col)) %>%
     dplyr::mutate(hovertext = stringr::str_wrap(hovertext))
 
+  shown_areas <- character(0)
+
   for (i in seq_along(chunks)) {
     cur_chunk <- chunks[i]
 
     data_filtered <- data %>%
       dplyr::filter(!!sym(chunk_col) == cur_chunk)
 
-    color_ <- data_filtered$color %>%
-      unique()
-    #
-    # outline_ <- data_filtered$outline_color %>%
-    #   unique()
+    # One trace per area within this chunk, so the legend shows areas
+    areas <- unique(data_filtered$area)
 
-    fig <- fig %>%
-      plotly::add_trace(
-        x = as.formula(paste0("~", x_)),
-        y = as.formula(paste0("~", y_)),
-        name = cur_chunk,
-        type = "bar",
-        data = data_filtered,
-        marker = list(
-          color = color_,
-          line = list(color = "#FFF", width = 0.25)
-        ),
-        hovertext = ~hovertext,
-        hoverinfo = "text"
-      )
+    for (cur_area in areas) {
+      data_area <- data_filtered %>%
+        dplyr::filter(area == cur_area)
 
+      color_ <- data_area$color %>%
+        unique()
+
+      fig <- fig %>%
+        plotly::add_trace(
+          x = data_area[[x_]],
+          y = data_area[[y_]],
+          name = cur_area,
+          type = "bar",
+          legendgroup = cur_area,
+          showlegend = !(cur_area %in% shown_areas),
+          marker = list(
+            color = color_,
+            line = list(color = "#FFF", width = 0.25)
+          ),
+          hovertext = data_area$hovertext,
+          hoverinfo = "text"
+        )
+
+      shown_areas <- c(shown_areas, cur_area)
+    }
   }
 
   fig <- fig %>%
@@ -285,8 +298,10 @@ viz_counts_adv <- function(
       xaxis = list(title = ""),
       yaxis = list(title = ""),
       hovermode = "closest",
-      legend = list(visible = FALSE)
+      showlegend = show_legend,
+      legend = list(title = list(text = "Area"))
     )
+
 
   fig
 }

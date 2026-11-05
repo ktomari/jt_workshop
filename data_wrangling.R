@@ -173,7 +173,7 @@ cb <- data.frame(
   level = c(
     "Directly Performed",
     "Partly Performed",
-    "Conditions",
+    "Primes/Supplements",
     "Needs Alteration",
     "Indirectly Related"
   ),
@@ -606,6 +606,8 @@ quintile_second_order <- purrr::map(
 ) %>%
   setNames(snm)
 
+
+# scenario organization roles ----
 org_roles <- purrr::map(
   .x = snm,
   .f = function(scenario_){
@@ -645,3 +647,17 @@ org_roles <- purrr::map(
     by = "jtid"
   ) %>%
   dplyr::select(scenario, entity, score, strategy_role_type, dplyr::everything())
+
+# scenario_scores_by_area ----
+sscores <- purrr::map(
+  .x = snm,
+  .f = ~scenario_scores_by_area(.x)
+) %>%
+  setNames(snm)
+
+# sce_unique ----
+sunique <- purrr::map(
+  .x = snm,
+  .f = ~sce_unique(.x)
+) %>%
+  setNames(snm)

@@ -1,9 +1,9 @@
 # Setup ----
-here::i_am("transgov/init.R")
+here::i_am("init.R")
 library(here)
 
 # data
-load(here::here("transgov", "sysdata.rda"))
+load(here::here( "sysdata.rda"))
 
 # broadly useful tidyverse packages loaded here.
 library(dplyr)
@@ -78,6 +78,7 @@ icb <- data.frame(
   score = c(1, 0.75, 0.5, 0.25, 0.2, 0)
 )
 
-source(here::here("transgov", "data_wrangling.R"))
+source(here::here("viz.R"))
+source(here::here("data_wrangling.R"))
 
 viz_node_sizes <- c(10, 45)
