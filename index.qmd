@@ -227,7 +227,9 @@ Under these four strategic areas, there are:
 We examined how each action in the Adaptation Plan (AP) **align** with the goals and targets of each JT Scenario. We rated each action for each scenario along a rubric that essentially focuses on two framing questions: 
 
 * **Is this a core action?** Does this governance action help realize the JT Scenario?
-* **Is this a peripheral action?** Does this governance action potentially support the JT Scenario without direct engagement with scenario targets? 
+* **Is this an intermediate action?** Does this action have elements that would help realize the JT scenario?
+* **Is this a peripheral action?** Does this governance action potentially support the JT Scenario without direct engagement with scenario targets or mechanisms? 
+* **Is this a broadly beneficial action?** Does this action broadly support salinity management in the JT Scenario, but otherwise perform no contribution to the Scenario mechanisms?
 
 Using this approach we determined a numeric score for each AP action under each Scenario.<br><br>
 
@@ -284,9 +286,9 @@ In this chart, each scenario is shown with its overall alignment with Adaptation
 ::: {focus-on="cr-overall_actions"}
 ### Takeaways
 
-* Greater diversity of strategies to address salinity management in New Green Watershed, and also greater complexity in the task of governance.
-* Fewest total number of actions for salinity management under a changing climate for the Tunnel.
-* Calling on Reserves and Bolster & Fortify involve similar numbers of weighted actions for climate adaptation.
+<!-- * Greater diversity of strategies to address salinity management in New Green Watershed, and also greater complexity in the task of governance. -->
+<!-- * Fewest total number of actions for salinity management under a changing climate for the Tunnel. -->
+<!-- * Calling on Reserves and Bolster & Fortify involve similar numbers of weighted actions for climate adaptation. -->
 
 :::
 
@@ -376,7 +378,7 @@ The purpose of this chart is to facilitate exploring the actions on your own tim
 :::{focus-on="cr-ota"}
 ### Takeaways
 
-Notably, actions which affect how adaptive agricultural practices are regulated and supported are absent. This is because only New Green Watershed addresses changes in agricultural practices.
+<!-- Notably, actions which affect how adaptive agricultural practices are regulated and supported are absent. This is because only New Green Watershed addresses changes in agricultural practices. -->
 
 :::
 
@@ -454,7 +456,7 @@ viz_counts(
 ::: {focus-on="cr-em2"}
 ### Unique Actions
 
-What makes `r sce` unique and distinctive when compared to other scenarios, are flood risk reduction and ecosystem actions that help set the groundwork. In other words, actions that are directly performed in `r sce` are shared with other JT scenarios (like `r snm[2]`) and are not unique to this scenario.<br><br>
+<!-- What makes `r sce` unique and distinctive when compared to other scenarios, are flood risk reduction and ecosystem actions that help set the groundwork. In other words, actions that are directly performed in `r sce` are shared with other JT scenarios (like `r snm[2]`) and are not unique to this scenario.<br><br> -->
 
 :::{.light-section}
 {{< accordion ac-unique >}}
@@ -515,7 +517,7 @@ viz_counts(
 ::: {focus-on="cr-ngw2"}
 ### Unique Actions
 
-Given that `r sce` has the most number of adaptive actions related to its performance, it is not surprising to find a number of core actions unique to this scenario. Some of these interventions are performed directly in the scenario, although most simply set a foundation.
+<!-- Given that `r sce` has the most number of adaptive actions related to its performance, it is not surprising to find a number of core actions unique to this scenario. Some of these interventions are performed directly in the scenario, although most simply set a foundation. -->
 
 :::
 
@@ -538,7 +540,7 @@ scedat <- sscores[[sce]]
 ::: {focus-on="cr-t1"}
 ## Tunnel
 
-There are `r nrow(scedat)` actions aligned with `r sce`. The `r sce` has the least potential number of actions and lowest alignment with the AP. No adaptive action directly targets the building blocks for this scenario. Finally, no core actions were identified as "unique" to `r sce`.
+<!-- There are `r nrow(scedat)` actions aligned with `r sce`. The `r sce` has the least potential number of actions and lowest alignment with the AP. No adaptive action directly targets the building blocks for this scenario. Finally, no core actions were identified as "unique" to `r sce`. -->
 
 :::
 
@@ -567,7 +569,9 @@ scedat <- sscores[[sce]]
 ::: {focus-on="cr-bf1"}
 ## Bolster & Fortify
 
-There are `r nrow(scedat)` actions aligned with `r sce`. Only three AP actions are directly performed under `r sce`, and these all directly relate to the infrastructure necessary to realize the scenario. 
+There are `r nrow(scedat)` actions aligned with `r sce`. 
+
+<!-- Only three AP actions are directly performed under `r sce`, and these all directly relate to the infrastructure necessary to realize the scenario. -->
 
 :::
 
@@ -594,7 +598,7 @@ viz_counts(
 ::: {focus-on="cr-bf2"}
 ### Unique Actions
 
-Beyond the infrastructure actions already discussed above (which are unique), there are a number of distinct flood risk reduction actions that support, but do not by necessity correspond with core components of `r sce`.
+<!-- Beyond the infrastructure actions already discussed above (which are unique), there are a number of distinct flood risk reduction actions that support, but do not by necessity correspond with core components of `r sce`. -->
 
 :::
 
@@ -617,7 +621,9 @@ scedat <- sscores[[sce]]
 ::: {focus-on="cr-cor1"}
 ## Calling on Reserves
 
-There are `r nrow(scedat)` actions aligned with `r sce`. Unsurprisingly, the key strategy areas for `r sce` involve flood risk reduction and water supply reliability. This scenario has one adaptive action that would be directly implemented and one that is "partly performed". The former concerns reservoir storage capacities and the latter concerns "functional flows" which ties the needs of the ecosystem to how much water is released from reservoirs.
+There are `r nrow(scedat)` actions aligned with `r sce`. 
+
+<!-- Unsurprisingly, the key strategy areas for `r sce` involve flood risk reduction and water supply reliability. This scenario has one adaptive action that would be directly implemented and one that is "partly performed". The former concerns reservoir storage capacities and the latter concerns "functional flows" which ties the needs of the ecosystem to how much water is released from reservoirs. -->
 :::
 
 :::{#cr-cor1}
@@ -643,7 +649,7 @@ viz_counts(
 ::: {focus-on="cr-cor2"}
 ### Unique Actions
 
-Many of the distinctive actions for this scenario involve ones that support reservoir operations.
+<!-- Many of the distinctive actions for this scenario involve ones that support reservoir operations. -->
 :::
 
 :::{#cr-cor2}
@@ -665,7 +671,9 @@ scedat <- sscores[[sce]]
 ::: {focus-on="cr-f1"}
 ## Increased Flows
 
-There are `r nrow(scedat)` actions aligned with `r sce`. Similar to `r snm[3]`, no adaptation actions were identified would be directly performed under this scenario. Finally, no core actions were identified as unique to `r sce`.
+There are `r nrow(scedat)` actions aligned with `r sce`. 
+
+<!-- Similar to `r snm[3]`, no adaptation actions were identified would be directly performed under this scenario. Finally, no core actions were identified as unique to `r sce`. -->
 
 :::
 
@@ -739,9 +747,9 @@ The Adaptation Plan identifies two tiers of governance actors: lead and partner 
 
 In this graph, the lead agencies for each scenario are set for comparison. Some takeaways:
 
-* EM and NGW are very similar
-* Tunnel, with least actions, predictably has least leads
-* DWR is the most central agency among survey respondents from a different data set, but its role here differs by scenario.
+<!-- * EM and NGW are very similar -->
+<!-- * Tunnel, with least actions, predictably has least leads -->
+<!-- * DWR is the most central agency among survey respondents from a different data set, but its role here differs by scenario. -->
 
 :::
 
@@ -808,9 +816,9 @@ This graph, as with the previous one, displays the relative proportion of organi
 :::
 
 ::: {focus-on="cr-all_types"}
-* The state remains the most important, hovering around 50%.
-* The biggest new actors: the Federal government and Native nations. 
-* There seems to be an outsized importance of local government for the Tunnel. What might this say about sources of climate resilience by actor type?
+<!-- * The state remains the most important, hovering around 50%. -->
+<!-- * The biggest new actors: the Federal government and Native nations.  -->
+<!-- * There seems to be an outsized importance of local government for the Tunnel. What might this say about sources of climate resilience by actor type? -->
 
 :::
 
@@ -899,9 +907,9 @@ actorsum <- tibble::tibble(scenario = snm) %>%
 :::: {.cr-section layout="sidebar-left"}
 
 :::{focus-on="cr-network"}
-# Next Steps
+<!-- # Next Steps -->
 
-In the coming weeks, we'll be adding supplemental data on governance collaborations. This data set has over 600 actors, and we'll link lead agencies identified with each scenario to see who else beyond the partners identified in the Adaptation Plan might be considered for each scenario.<br><br>
+<!-- In the coming weeks, we'll be adding supplemental data on governance collaborations. This data set has over 600 actors, and we'll link lead agencies identified with each scenario to see who else beyond the partners identified in the Adaptation Plan might be considered for each scenario.<br><br> -->
 :::
 
 :::{#cr-network}
@@ -916,13 +924,13 @@ In the coming weeks, we'll be adding supplemental data on governance collaborati
 :::{focus-on="cr-tmp"}
 # Takeaways 
 
-* These results are **preliminary** and there are a lot of gaps. For example, New Green Watershed, with its ambitious full watershed extent, likely involves a greater number of actions and actors given that the Adaptation Plan is confined to the Delta.
-* Complexity of management and opportunities for resilience to climate change go hand-in-hand.
-* With complexity, it will have to be collaborative, which means:
-  * many governmental and non-governmental actors will have to work collectively and through consensus-oriented decision-making.
-* Actions are scenario dependent, but some key actions appear to be generally beneficial for salinity management
-  * Native American nations and organizations will need a bigger seat at the table but "how?" is still ambiguous.
-  * We might see a shift between responsibility for climate change resilience between different scales of actors, for example a greater reliance on local government in Tunnel.
+<!-- * These results are **preliminary** and there are a lot of gaps. For example, New Green Watershed, with its ambitious full watershed extent, likely involves a greater number of actions and actors given that the Adaptation Plan is confined to the Delta. -->
+<!-- * Complexity of management and opportunities for resilience to climate change go hand-in-hand. -->
+<!-- * With complexity, it will have to be collaborative, which means: -->
+<!--   * many governmental and non-governmental actors will have to work collectively and through consensus-oriented decision-making. -->
+<!-- * Actions are scenario dependent, but some key actions appear to be generally beneficial for salinity management -->
+<!--   * Native American nations and organizations will need a bigger seat at the table but "how?" is still ambiguous. -->
+<!--   * We might see a shift between responsibility for climate change resilience between different scales of actors, for example a greater reliance on local government in Tunnel. -->
 
 :::
 

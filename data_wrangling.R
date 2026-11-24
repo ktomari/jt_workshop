@@ -171,18 +171,16 @@ strategy_colors <- dat$scenario_scores_by_action %>%
 
 cb <- data.frame(
   level = c(
-    "Directly Performed",
-    "Partly Performed",
-    "Primes/Supplements",
-    "Needs Alteration",
-    "Indirectly Related"
+    "Core",
+    "Intermediate",
+    "Peripheral",
+    "Broadly Beneficial"
   ),
   score = c(
     1,
     0.75,
     0.5,
-    0.25,
-    0.2
+    0.25
   )
 ) %>%
   dplyr::arrange(score) %>%
